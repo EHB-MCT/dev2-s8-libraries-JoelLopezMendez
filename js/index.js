@@ -8,18 +8,25 @@ const app = {
     map: null, // gebruik dit om de map gemakkelijk aan te spreken doorheen de applicatie
     init() {
         // initialise de kaart
+        let map = L.map('map').setView([50.846349, 4.3562011], 13);
 
         // voeg een tile layer toe, met URL https://a.tile.openstreetmap.org/{z}/{x}/{y}.png
         // vergeet openstreetmap attributie niet
-        
+        L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([50.8420957, 4.3199809]).addTo(map)
+            .bindPopup('Erasmushogeschool Brussel')
+            .openPopup();
         // gebruik de functie "loadMarkers" om de markers toe te voegen
     },
     loadMarkers() {
 
         // fetch de data van opendata.brussels.be
-            // als er coordinaten beschikbaar zijn, kan je de addMarker functie gebruiken om een marker toe te voegen op de kaart
-        
-        
+        // als er coordinaten beschikbaar zijn, kan je de addMarker functie gebruiken om een marker toe te voegen op de kaart
+
+
     },
     addMarker(lat, lon) {
         // voeg een marker toe op lat, lon
